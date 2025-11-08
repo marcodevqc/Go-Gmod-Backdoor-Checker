@@ -1,0 +1,5 @@
+# Ignore built binaries
+hello
+
+# macOS
+.DS_Store

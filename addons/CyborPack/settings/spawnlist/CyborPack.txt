@@ -1,0 +1,13 @@
+"SpawnMenu"
+{
+	"Information"
+	{
+		"version"		"2"
+		"name"		"CyborPack"
+	}
+	"Entries"
+	{
+		"1"		"models/cyborg/engineer.mdl"
+		"2"		"models/cyborg/medic.mdl"		"3"		"models/cyborg/pyro.mdl"
+		"4"		"models/cyborg/spy.mdl"	}
+}

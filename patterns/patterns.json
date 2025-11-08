@@ -1,0 +1,62 @@
+{
+  "generic": [
+    { "name": "RunString/CompileString", "pattern": "\\b(RunString|CompileString)\\b" },
+    { "name": "Load/LoadString", "pattern": "\\b(loadstring|load)\\b" },
+    { "name": "HTTP fetch/post/url", "pattern": "https?://|\\bhttp\\.Fetch\\b|\\bhttp\\.Post\\b" },
+    { "name": "OS Execute", "pattern": "\\bos\\.execute\\b|\\bshell\\.Execute\\b" },
+    { "name": "File Write/Delete", "pattern": "\\bfile\\.Write\\b|\\bfile\\.Delete\\b|\\bfile\\.Open\\b" },
+    { "name": "String.char", "pattern": "string\\.char\\s*\\(" },
+    { "name": "Net library", "pattern": "\\bnet\\.Start\\b|\\bnet\\.Receive\\b|\\bnet\\.Send\\b" },
+    { "name": "Timer obfuscation", "pattern": "\\btimer\\.Simple\\b\\s*\\(" },
+    { "name": "Encrypted-looking", "pattern": "[A-Za-z0-9+/]{40,}={0,2}" },
+    { "name": "HexBlob", "pattern": "(?i)[0-9a-f]{40,}" }
+  ],
+  "per_extension": {
+    ".lua": [
+      { "pattern": "RunString", "description": "Code Execution (RunString)" },
+      { "pattern": "CompileString", "description": "Code Execution (CompileString)" },
+      { "pattern": "\\.vmt", "description": "VMT File Referenced" },
+      { "pattern": "http\\.Fetch", "description": "http.Fetch" },
+      { "pattern": "http\\.Post", "description": "http.Post" },
+      { "pattern": "STEAM_[0-9]+:[0-9]+:[0-9]+", "description": "Steam ID Referenced" },
+      { "pattern": "0[xX][0-9a-fA-F]+", "description": "Obfuscated / Encrypted Code" },
+      { "pattern": "\\\\[xX][0-9a-fA-F]+", "description": "Obfuscated / Encrypted Code [Hex Code]" },
+      { "pattern": "\\\\[0-9]+\\\\[0-9]+", "description": "Obfuscated / Encrypted Code" },
+      { "pattern": ":SetUserGroup(.superadmin.|.admin.)", "description": "Setting User Group to Admin/SuperAdmin" },
+      { "pattern": "file\\.Read", "description": "Reading File" },
+      { "pattern": "file\\.Delete", "description": "Deleting File" },
+      { "pattern": "game\\.ConsoleCommand", "description": "Console Command" },
+      { "pattern": "getfenv", "description": "Call to getfenv()" },
+      { "pattern": "_G\\[(.*?)\\]", "description": "References Global Table" },
+      { "pattern": "getregistry", "description": "Call to getregistry" }
+    ],
+    ".vmt": [
+      { "pattern": "[0-9]{2,3}(,[0-9]{2,3})*", "description": "CharCode" },
+      { "pattern": "[0-9]{2,3}\\\\", "description": "CharCode" },
+      { "pattern": "\\[xX][0-9a-fA-F]+", "description": "Obfuscated Code [Hex]" },
+      { "pattern": "RunString", "description": "Code Execution (RunString)" },
+      { "pattern": "CompileString", "description": "Code Execution (CompileString)" },
+      { "pattern": "timer\\.Simple", "description": "Timer" },
+      { "pattern": "http\\.Fetch", "description": "http.Fetch" },
+      { "pattern": "http\\.Post", "description": "http.Post" },
+      { "pattern": "getregistry", "description": "Call to getregistry" }
+    ],
+    ".vtf": [
+      { "pattern": "RunString", "description": "Code Execution (RunString)" },
+      { "pattern": "CompileString", "description": "Code Execution (CompileString)" },
+      { "pattern": "timer\\.Simple", "description": "Timer" },
+      { "pattern": "http\\.Fetch", "description": "http.Fetch" },
+      { "pattern": "http\\.Post", "description": "http.Post" },
+      { "pattern": "getregistry", "description": "Call to getregistry" }
+    ],
+    ".ttf": [
+      { "pattern": "RunString", "description": "Code Execution (RunString)" },
+      { "pattern": "CompileString", "description": "Code Execution (CompileString)" },
+      { "pattern": "timer\\.Simple", "description": "Timer" },
+      { "pattern": "http\\.Fetch", "description": "http.Fetch" },
+      { "pattern": "http\\.Post", "description": "http.Post" },
+      { "pattern": "[0-9]{2,3}(,[0-9]{2,3})*", "description": "Code Obfuscation (Decimal)" },
+      { "pattern": "getregistry", "description": "Call to getregistry" }
+    ]
+  }
+}
