@@ -1,4 +1,0 @@
-Choose which vpk you want, and put it in C:/Program Files(x86)/Steam/Steamapps/common/Team Fortress 2/tf/custom/
-
-The white and purple do not have team colors, and if you want to change which one you have later, take the original
-out first, don't run two at a time. I don't know what will happen, and i'm not responsible for whatever happens
