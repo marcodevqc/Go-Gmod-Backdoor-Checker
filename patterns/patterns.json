@@ -9,7 +9,12 @@
     { "name": "Net library", "pattern": "\\bnet\\.Start\\b|\\bnet\\.Receive\\b|\\bnet\\.Send\\b" },
     { "name": "Timer obfuscation", "pattern": "\\btimer\\.Simple\\b\\s*\\(" },
     { "name": "Encrypted-looking", "pattern": "[A-Za-z0-9+/]{40,}={0,2}" },
-    { "name": "HexBlob", "pattern": "(?i)[0-9a-f]{40,}" }
+    { "name": "HexBlob", "pattern": "(?i)[0-9a-f]{40,}" },
+    { "name": "Base64 Decode", "pattern": "\\butil\\.Base64Decode\\b" },
+    { "name": "Debug Hook", "pattern": "\\bdebug\\.sethook\\b" },
+    { "name": "Environment Manipulation", "pattern": "\\bsetfenv\\b|\\bgetfenv\\b" },
+    { "name": "Binary String Operations", "pattern": "\\bstring\\.dump\\b|\\bstring\\.reverse\\b" },
+    { "name": "Memory Access", "pattern": "\\bjit\\.attach\\b|\\bjit\\.util\\.funcinfo\\b" }
   ],
   "per_extension": {
     ".lua": [
@@ -28,7 +33,21 @@
       { "pattern": "game\\.ConsoleCommand", "description": "Console Command" },
       { "pattern": "getfenv", "description": "Call to getfenv()" },
       { "pattern": "_G\\[(.*?)\\]", "description": "References Global Table" },
-      { "pattern": "getregistry", "description": "Call to getregistry" }
+      { "pattern": "getregistry", "description": "Call to getregistry" },
+      { "pattern": "debug\\.getupvalue", "description": "Debug Upvalue Access" },
+      { "pattern": "debug\\.getregistry", "description": "Debug Registry Access" },
+      { "pattern": "render\\.Capture", "description": "Screen Capture" },
+      { "pattern": "hook\\.GetTable", "description": "Hook Table Access" },
+      { "pattern": "util\\.TableToJSON", "description": "Table Serialization" },
+      { "pattern": "RunConsoleCommand", "description": "Console Command Execution" },
+      { "pattern": "player\\.GetAll\\(\\)", "description": "Player List Access" },
+      { "pattern": "sql\\.(Query|SQLStr)", "description": "SQL Operations" },
+      { "pattern": "file\\.Find", "description": "File System Enumeration" },
+      { "pattern": "concommand\\.Add", "description": "Console Command Registration" },
+      { "pattern": "hook\\.Remove", "description": "Hook Removal" },
+      { "pattern": "net\\.WriteString", "description": "Network String Write" },
+      { "pattern": "util\\.AddNetworkString", "description": "Network String Registration" },
+      { "pattern": "file\\.Exists", "description": "File Existence Check" }
     ],
     ".vmt": [
       { "pattern": "[0-9]{2,3}(,[0-9]{2,3})*", "description": "CharCode" },
